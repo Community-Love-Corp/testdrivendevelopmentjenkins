@@ -1,0 +1,276 @@
+<!doctype html>
+<!--<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Jenkins</title>
+  
+<style>
+section{
+  display: block;
+}
+
+body, div {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+#header {
+    background:orange;
+}
+#container {
+    background:blue;
+}
+#content {
+    background:pink;
+}
+#footer {
+    background:green;
+}
+
+.holder {   
+  width: auto;
+  display: inline-block;
+}
+
+.width70 {
+  width: 70%; 
+  height: auto;    
+}​
+
+.width30 {
+  width: 30%; 
+  height: auto;    
+}​
+
+.width100 {
+  width: 100%; 
+  height: auto;    
+}​
+
+.flex-init-setup {
+     display: -webkit-box;
+     display: -moz-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+ }
+ .flex-ppal-setup {
+     -webkit-flex-flow: column wrap;
+     -moz-flex-flow: column wrap;
+     flex-flow: column wrap;
+     -webkit-justify-content: center;
+     -moz-justify-content: center;
+     justify-content: center;
+ }
+ </style>
+
+</head>
+<body>
+
+<section id="container flex-init-setup flex-ppal-setup">
+<div class="header"> 
+<h1>Web Calendar - Modern Web Application specifics</h1>
+<br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page 
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html">back</a> to details of Automation used
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/integration.html">back</a> to details of SOAP Web Services Integration implemented
+<br> <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html> to details of Azure hosted scalable microservice based setup of this site</a> </h5>
+
+<p></p>
+<br>
+<table border="1">
+	<tr>
+		<td>
+			<h2 id="toc"> Table of Contents</h2>
+			<br>
+			<br>1. <a href="#AzureCosmosDB"> SCALABLE CLOUD HOSTED DB - COSMOS NOSQL</a> 
+			<br>
+			<br>2. <a href="#MicroserverWrapperForDB"> SPRING BOOT MICROSERVICE FOR DB CRUD OPERATIONS</a>
+			<br>
+			<br>3. <a href="#CloudHostedFrontEnd"> CLOUD HOSTED SPRING BOOT FRONTEND</a>
+			<br>
+			<br>4. <a href="#HowFrontEndSpeaksToMicroservice">HOW DOES IT INTEGRATE</a>
+			<br>
+			<br>5. <a href="#Future">FUTURE: CI / CD WITH GITHUB ACTIONS FOR WEB CALENDAR APPLICATION</a>
+			<br>
+			<br>6. <a href="#References">REFERENCES</a>
+			<br>
+			<br> <a href="microservices-cosmosdb-azure.html" target="_top">Back to Top</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<div class="header">
+			<h3 id="AzureCosmosDB">1. SCALABLE CLOUD HOSTED DB - COSMOS NOSQL</h3>
+				<br>Cosmos SQL Database is a web scalable database, in my case hosted in Azure. When we need to scale upwards, with traditional SQL databases, we have to bump up the server RAM/CPU or manage data across servers painstakingly. With Azure Cosmos No SQL db, it is a distributed database and can easily be split apart across multiple data centers, making it highly scalable. The 'NoSQL' nature means that we can continue to use SQL queries to manage it. It manages this via maintaining a Partition id for each record. More later.
+	            <br>
+                <br><div class="holder">
+                    <img id="imgBanner" img src="/images/clHsDB.JPG" class="width70" alt="Azure Cosmos DB"/>
+					<!--<a th:href= "@{/images/clHsDB.jpg}" class="width70"></a>-->
+					<!--<img src='@Url.Content("~/images/clHsDB.jpg")' alt="Azure Cosmos DB" />-->
+					<!--<img src='src\main\resources\static\images\clHsDB.JPG' alt="Azure Cosmos DB" />-->
+                </div>
+
+				<br> <a href="#toc">Back to Table Of Contents</a>	
+		</div>
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<h3  id="MicroserverWrapperForDB">2. SPRING BOOT MICROSERVICE FOR DB CRUD OPERATIONS</h3>
+				<br> To reduce risk and improve usability an application with an api interface sits infront of Web Calendar's Cosmos DB. This is also hosted in the cloud. Below is a screenshot of its API interface being tested with Postman API tool.
+	            <br>
+                <br><div class="holder">
+                    <!--<img src="/images/ms-pt.jpg" class="width70"/>-->
+					<!--<a th:href= "@{/images/ms-pt.jpg}" class="width70"></a>-->
+					<img id="imgBanner1" img src="/images/ms-pt.JPG" class="width70" alt="Microservice API for DB"/>
+				</div>
+				<br> <a href="#toc">Back to Table Of Contents</a>
+				<br>
+		</td>
+	</tr>			
+	<tr>	
+		<td>
+			<h3 id="CloudHostedFrontEnd">3. CLOUD HOSTED SPRING BOOT FRONTEND</h3>
+				<br> As you can see from the url, this is a spring boot site hosted on Azure Cloud. Entire application is hosted entirely on cloud and code is in Git hub. Next step is to setup CI/CD with 'Github actions'!
+				<br>
+				<br>HOW WAS APP DEPLOYED TO AZURE?
+				<br>
+				<br> This was done via native functionality in VS Code IDE. Log into azure portal with your paid/trial account. In your spring boot application in VS code, under the 'targets' folder, there is a .jar/.war file. Right click it and select 'deploy to web app..' option. Follow prompts and it should deploy as shown below:
+				<br>
+				<br><img id="imgBanner2" img src="/images/VsCodeIdeDeployToAzure.JPG" class="width70" alt="How to deploy spring boot application to Azure"/>		
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<h3 id="HowFrontEndSpeaksToMicroservice">4. HOW DOES THE INTEGRATION WORK</h3>
+                <br>
+                <br>A. Integraton between Spring Boot Microservice and DB	
+                <br> It is seamlessly achieved via native features of java spring boot due to maven dependency called:  	
+				<br>
+                <br> - spring-cloud-azure-starter-data-cosmo
+                <br>
+                <br>
+                <br>B. Integration between Spring Boot Microservice and Spring Boot Thymeleaf based front end
+                <br> This is via simple API calls (see section 2.0 above).
+				<br>
+                <br>
+                <br> <a href="#toc">Back to Table Of Contents</a>			 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h3 id="Future">5. FUTURE: CI / CD WITH GITHUB ACTIONS FOR WEB CALENDAR APPLICATION</h3>
+			<br><Strong></Strong>
+			<br>
+			<br>END GOAL - DEVSECOPS - CONTINUOUS INTEGRATION/ CONTINOUS DEPLOYMENT (CI/CD) WITH BUILT IN SECURITY 
+			<br>PLAN TO ACHIEVE Development Security Operations (DEVSECOPS) Paradigm via this exercise 
+			<br>
+			<br>DevOps is about integrating Development (includes 'quality assurance'/testing) and Operations in one seamless process with a focus on automation to make the process efficient as it is a lot of work if done manually (as in the past). It does that via CI/CD pipelines and agile processes for software development (see <a href="https://agilemanifesto.org/">Agile Manifesto</a> e.g. 'Responding to change over following a plan'. DevSecOps is a recent pradigm shift to that and is the future of IT. It is a system where security is inbuilt in every step of development and deployment/operations. Continous monitoring (e.g. via code/automation following is setup - automated vulnerability scanning on nuget packages, alerts on availability cloud Infrastructure) in addtion to Devops automated testing provides continous and automated compliance enforcement[33]. This helps with maintaining <strong>'Zero Trust'</strong>, where there is an assumption that malicius users can be anywhere and have access to our systems already, so our job is to limit the damage. 
+			<br>
+			<br><strong>DevSecOps pillars are Develop, Build, Test, Release & Deploy, and Runtime</strong> aimed at achieving a secure posture with the focus being on automation and integration going forward [32], inorder to make the process sustainable.
+			<br>
+			<br> <img id="imgBanner2" img src="/images/DevSecOps-Software-Lifecycle.png" class="width70" alt="DevSecOps - What is it?"/>
+			<br>
+			<br> This was achieved with Jenkins previously in 2016 (see link in footer for CI/CD). The objective is now to do that with the latest technology, particulary the cloud. Now our infrastructure is also in the cloud, so we provision that with our application via YAML pipelines. BICEP is Microsoft recommeneded language to provision infrastructure in Cloud (Infrastructure as Service). So, if I was to port this application to use CI/CD pipelines for cloud, I would first provision the infrastructure in Azure using BICEP via yaml pipelines (e.g. WebApp to host application and keyVault to store secrets). in Git hub actions with secrets in Azure Key Vault. I would then use the same pipleline to build the application code and deploy it in Azure. A part of this would also be to run my test automation suite. All this would happen via a click of a button and this would be a CI/CD pipeline. I will also do some automated vulnerability scanning as part of deployment and use containers. The reason is to include some Security aspects to my devops setup. <strong>Together, this would be a basic DevSecOps pipeline</strong>. I have done similar work before but I now plan to do this via free software in Git Hub actions. Please watch this space.
+			  <br>
+			  <br>WITH CONTINUOUS INTEGRATION
+			  <br>
+			  <br>--coming--
+			  <br>	 
+			  <br><strong>WHAT IT MEANS TO THE WEB CALENDAR APPLICATION</strong>
+			<br>In 2016, this application was configured to auto-run Selenium tests using the TestNG framework right after the application build is triggered in Jenkins to enable instant Quality feedback. At the end of my exercise, it will be on the first ladder of cloud based DevSecOps. 
+			<br> <a href="#toc">Back to Table Of Contents</a>			 
+		</td>
+	</tr>
+</table>
+<br>
+<br>
+<h3 id="References">6. REFERENCES (proper APA style is on the way e.g. see id# 24)</h3>
+<br> Note: All the work done in 2023 on this website (everything on this page) was done using the help from these websites:
+<br>
+<br>1. Working with application servers in Visual Studio Code. Source: https://code.visualstudio.com/docs/java/java-tomcat-jetty
+<br>
+<br>2. Spring Boot support in Visual Studio Code. Source: https://code.visualstudio.com/docs/java/java-spring-boot 
+<br>
+<br>3. Getting Started with Java in Visual Studio Code. Source: https://code.visualstudio.com/docs/java/java-tutorial
+<br>
+<br>4. Create First Microservice using Spring Boot | by Maneesha Indrachapa | Dev Genius. Source: https://blog.devgenius.io/create-first-microservice-using-spring-boot-1994cd78bbdf#:~:text=Create%20First%20Microservice%20using%20Spring%20Boot%201%201.,Creating%20Controllers%20...%206%206.%20Testing%20the%20APIs
+<br>
+<br>5. Build and Deploy Java Web Apps to the cloud with Visual Studio Code. Source: https://code.visualstudio.com/docs/java/java-webapp
+<br>
+<br>6. Docker extension for Visual Studio Code. Source: https://code.visualstudio.com/docs/containers/overview
+<br>
+<br>7. Java project management in Visual Studio Code. Source: https://code.visualstudio.com/docs/java/java-project
+<br>
+<br>8. Spring Boot support in Visual Studio Code. Source: https://code.visualstudio.com/docs/java/java-spring-boot
+<br>
+<br>9. How do I find where Java is installed on Windows 10? - Stack Overflow. Source: https://stackoverflow.com/questions/69990781/how-do-i-find-where-java-is-installed-on-windows-10
+<br>
+<br>10. How to Run Spring Boot Application? - GeeksforGeeks. Source: https://www.geeksforgeeks.org/how-to-run-spring-boot-application/
+<br>
+<br>11. How to use Azure Cosmos DB from your Spring Boot App - Episode 48 - YouTube. Source: https://www.youtube.com/watch?v=4fSvyQw6luE
+<br>
+<br>12. https://stackoverflow.com/questions/30855864/maven-no-plugin-found-for-prefix-spring-boot-in-the-current-project-and-in-th
+<br>
+<br>13. https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+<br>
+<br>14. https://stackoverflow.com/questions/51221777/failed-to-configure-a-datasource-url-attribute-is-not-specified-and-no-embedd
+<br>
+<br>15. terminal - How to push a new branch in git? - Stack Overflow. Source: https://stackoverflow.com/questions/52231262/how-to-push-a-new-branch-in-git
+<br>
+<br>16. How to create a Servlet application in vs code - https://youtu.be/A939OhSK6Kg
+<br>
+<br>17. How to setup Apache Tomcat, create War file and deployment in tomcat - https://youtu.be/CqSW7T2-E1Q
+<br>
+<br>18. How to deploy a jsp application to Azure Web app via ftp - https://youtu.be/V01GwRMCk2s
+<br>
+<br>19. java - Tomcat 7.0.43 "INFO: Error parsing HTTP request header" - Stack Overflow. Source: https://stackoverflow.com/questions/18819180/tomcat-7-0-43-info-error-parsing-http-request-header
+<br>
+<br>20. Run and Debug Java Web Application in Tomcat using VS Code | Use VS Code Community Server Connector - YouTube. Source: https://www.youtube.com/watch?v=RiPot1ne8rI
+<br>
+<br>21. Git-How to manage upstream branches - How To Set Upstream Branch on Git – devconnected. Source: https://devconnected.com/how-to-set-upstream-branch-on-git/
+<br>
+<br>22. servlets - java.lang.ClassNotFoundException: HelloServlet at org.apache.catalina.loader.WebappClassLoader.loadClass - Stack Overflow. Source: https://stackoverflow.com/questions/10380782/java-lang-classnotfoundexception-helloservlet-at-org-apache-catalina-loader-web
+<br>
+<br>23. Spring Boot and Beans ! 🍃. Spring boot is one of the most widely… | by Yogesh Ananda Nikam | Geek Culture | Medium. Source: https://medium.com/geekculture/spring-boot-and-beans-b2797b488fde
+<br>
+<br>24. Foster, K.(2021). Spring Boot & Thymeleaf Tutorial (+ Bootstrap). Source: https://www.youtube.com/watch?v=KTBWCJPKiqk
+<br>
+<br>25. WriteCodeWith prince.(2021). Registration Form Spring Boot with MySQL Database. Source: https://www.youtube.com/watch?v=RA6H-fECoKg
+<br>
+<br>26. https://stackoverflow.com/questions/60431441/redirect-to-post-method-in-same-controller
+<br>
+<br>27. https://stackoverflow.com/questions/14470111/spring-redirectattributes-addattribute-vs-addflashattribute
+<br>
+<br>28. git - Connect a local repository with a remote repository - Stack Overflow. Source: https://stackoverflow.com/questions/11188801/connect-a-local-repository-with-a-remote-repository#:~:text=do%20the%20following%20steps%3A%20cd%20existingLocalRepo%20git%20remote,upload%2Fpush%20your%20local%20branches%20to%20the%20remote%20repo
+<br>
+<br>29. View the recent commit history in Git | Reactgo
+<br>
+<br>30. Git commands from Java using JGIT | Programmatically git clone, checkout -b, commit -a, log, status, branch - Its All Binary - Coding Posts, Examples, Projects & More
+<br> 
+<br>31. Add Comments to Website (quackit.com)
+<br>
+<br>32. United States (US) Government's Department of Defence (DOD).(2023). DOCS Mission - Guidelines for partners to maintain complaince. Source: https://public.cyber.mil/devsecops/   
+<br>
+<br>33. Sharma, S.(2012). AGILE DEVELOPMENT, DEVOPS: Understanding DevOps – Part 4: Continuous Testing and Continuous Monitoring. Source: https://sdarchitect.blog/2012/10/30/understanding-devops-part-4-continuous-testing-and-continuous-monitoring/
+<br>
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">back </a> to Top of Page
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">back </a> to details of Automation used
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">back </a> to details of SOAP Web Services Integration
+<br> <a href="https://testdrivendevelopment.azurewebsites.net" target="_top">back</a> to login page 
+<br> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<br> For details of <u>Continuous integration using Jenkins</u> implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">here</a> </h5>
+
+<br>�Jay Sarna 2023     
+  
+</div>
+</section>
+</body>
+</html>
+        

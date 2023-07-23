@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Calendar</title>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<h1>Calculate weekdays for first and last days of a month</h1>  />
+<p>Note: On page load, the weekday information is based on current month</p>
+<p><label id="CurrentMonth"><strong>Selected Month: </strong><span th:text="${MonthText}"/></label> </p>
+<p><label id="CurrentYear"> <strong>Selected Year: </strong> <span th:text="${monthdate.year}"/> </label></p>
+<!--<p><label id="CurrentYear"> Last Date of Month:  <span th:text="${monthdate.monthEndDate}"/> </label></p>-->
+<p><label id="CurrentYear"> <strong>Weekday on first Date of Month: </strong> <u><span th:text="${weekdayFirstDayAt}"/></u> </label></p>
+<p><label id="CurrentYear"> <strong>Weekday on last Date of Month: </strong> <u><span th:text="${weekdayLastDayAt}"/> </u></label></p>
+<p></p>
+
+<form th:action="@{/getMonthFirstAndLastWeekdays}" th:object="${monthdate}" name="GetMonthAndYear" method="post">
+    <br>To view the starting weekday and ending weekday for a different Month, please select month and year below:</h3> 
+    <br>
+    <br> Select a month: 
+ <!--   <select id="monthlist" name="monthlist" th:field="*{month}" >
+       <option value="01">January</option>
+       <option value="02">February</option>
+       <option value="03">March</option>
+       <option value="04">April</option>
+       <option value="05">May</option>
+       <option value="06">June</option>
+       <option value="07">July</option>
+       <option value="08">August</option>
+       <option value="09">September</option>
+       <option value="10">October</option>
+       <option value="11">November</option>
+       <option value="12">December</option>
+    </select> -->
+        <select id="monthlist" name="monthlist" th:field="*{month}" >
+        <!--<option disabled>select option</option>-->
+        <option th:each="option : ${options}" th:value="${option.key}" th:text="${option.value}" th:selected="${monthdate.month}"></option>
+    </select>
+    <br>
+    <br> Select a year: 
+    <select id="yearlist" name="yearlist" th:field="*{year}" >
+        <!--<option disabled>select option</option>-->
+        <option th:each="option : ${yearOptions}" th:value="${option.key}" th:text="${option.value}" th:selected="${monthdate.year}"></option>
+    </select>
+    <br><li><p> <input type="submit" ID="submit" value="Get Month Dates and weekdays" /></p></li>
+</form> 
+<!--    <select id="yearlist" name="yearlist" th:field="*{year}" th:selected="2023" >
+       <option value="2021">2021</option>
+       <option value="2022">2022</option>
+       <option value="2023">2023</option>
+       <option value="2024">2024</option>
+       <option value="2025">2025</option>
+       <option value="2026">2026</option>
+    </select> 
+    <div class="g-recaptcha"
+        data-sitekey="6LffHyETAAAAAN-vHjs7KCoSVEWAArUEkcsRSLyS" required></div>
+     <br><li> <input type="submit" ID="submit" value="Get Month Dates and weekdays" /></li>
+    </form> 
+    
+
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Month</th>
+        <th scope="col">Year</th>
+        <th scope="col">Last Date of Month</th>
+    <tr>
+    </thead>
+  <tbody>
+    <tr th:each="CurrentDate: ${monthdate}">
+        <td th:text="${CurrentDate.month}"/>
+        <td th:text="${CurrentDate.year}"/>
+        <td th:text="${CurrentDate.MonthEndDate}"/>
+    </tr>
+    </tbody>
+</table>-->
+<br>
+<br>
+<!--<button id="myButton" class="float-left submit-button" >Logout</button>
+
+<script type="text/javascript">
+    document.getElementById("logout").onclick = function () {
+        location.href = "https://testdrivendevelopment.azurewebsites.net";
+    };
+</script>-->
+<button onclick="location.href = 'https://testdrivendevelopment.azurewebsites.net';" id="myButton" class="float-left submit-button" >Logout</button>
+<br>
+<br>
+<h5> For details on <u>Test Automation</u> used, please click <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">here</a> </h5> 
+<h5> For details on <u>Web Services Integration</u> used, please click <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">here</a> </h5>
+<h5> For details of <u>Continuous integration using Jenkins</u> implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">here</a> </h5>
+<h5> For details of <u>Cloud hosting, microservice utilisation and cloud based scalable database use </u>, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<br>�Jay Sarna 2023
+</body>
+</html>

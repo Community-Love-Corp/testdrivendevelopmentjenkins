@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+table td{
+vertical-align:top;
+border:solid 1px #888;
+padding:10px;
+}
+
+    </style>
+</head>
+<body>
+<h1>My Thymeleaf Error Page</h1>
+<br>
+<br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page
+<br>
+<table>
+    <tr>
+        <td>Date</td>
+        <td th:text="${timestamp}"/>
+    </tr>
+    <tr>
+        <td>Path</td>
+        <td th:text="${path}"/>
+    </tr>
+    <tr>
+        <td>Error</td>
+        <td th:text="${error}"/>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td th:text="${status}"/>
+    </tr>
+    <tr>
+        <td>Message</td>
+        <td th:text="${message}"/>
+    </tr>
+    <tr>
+        <td>Exception</td>
+        <td th:text="${exception}"/>
+    </tr>
+    <tr>
+        <td>Trace</td>
+        <td>
+            <pre th:text="${trace}"/>
+        </td>
+    </tr>
+</table>
+<br>
+<h5> For details on Automation used, please click <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">here</a> </h5> 
+<h5> For details on Web Services Integration used, please click <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">here</a> </h5>
+<h5> For details of Continuous integration using Jenkins implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">here</a> </h5>
+<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<br>�Jay Sarna 2023
+</body>
+</html>

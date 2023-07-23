@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Automation</title>
+  
+<style>
+section{
+  display: block;
+}
+
+body, div {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+#header {
+    background:orange;
+}
+#container {
+    background:blue;
+}
+#content {
+    background:pink;
+}
+#footer {
+    background:green;
+}
+
+.holder {   
+  width: auto;
+  display: inline-block;
+}
+
+.width70 {
+  width: 70%; 
+  height: auto;    
+}​
+
+.width30 {
+  width: 30%; 
+  height: auto;    
+}​
+
+.width100 {
+  width: 100%; 
+  height: auto;    
+}​
+
+.flex-init-setup {
+     display: -webkit-box;
+     display: -moz-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+ }
+ .flex-ppal-setup {
+     -webkit-flex-flow: column wrap;
+     -moz-flex-flow: column wrap;
+     flex-flow: column wrap;
+     -webkit-justify-content: center;
+     -moz-justify-content: center;
+     justify-content: center;
+ }
+ </style>
+
+</head>
+<body>
+
+<section id="container flex-init-setup flex-ppal-setup">
+<div class="header"> 
+<h1>Web Calendar - Test Automation for in built quality in DevSecOps</h1>
+<br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page 
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html">back</a> to details of Automation used
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/integration.html">back</a> to details of SOAP Web Services Integration implemented
+<br> <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html> to details of Azure hosted scalable microservice based setup of this site</a> </h5>
+		
+<p></p>
+<br>
+<table border="1">
+	<tr>
+		<td>
+			<h2 id="toc"> Table of Contents</h2>
+			<br>
+			<br>1. <a href="#purpose">PURPOSE</a> 
+			<br>
+			<br>2. <a href="#whatItDoes">WHAT THIS APPLICATION DOES</a>
+			<br>
+			<br>3. <a href="#whyItIsImportant">WHY IS IT IMPORTANT? - Web Browser Automation via Cucumber-Java-Selenium</a>
+			<br>
+			<br>4. <a href="#whyItIsImportant-Desktop">WHY IS IT IMPORTANT? - Desktop App Automation via Power Automate (Low Code)</a>
+			<br>
+			<br>5. <a href="#ruby">TEST DRIVEN DEVELOPMENT (TDD) PERFORMED WITH RUBY PROGRAMMING LANGUAGE</a>
+			<br>
+			<br>6. <a href="#mobile">TDD ON MOBILE PLATFORM</a>
+			<br>
+			<br>7. <a href="#nonfunctionaltesting">NON-FUNCTIONAL TESTING IMPLEMENTED</a>
+			<br>
+			<br>8. <a href="#useofframeworks">USE OF FRAMEWORKS</a>
+			<br>
+			<br> <a href="detail2.html" target="_top">Back to Top</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<div class="header">
+			<h3 id="purpose">1. PURPOSE</h3>
+				<h4>To demonstrate agile "Test Driven Development" (TDD) of a web application on browser and mobile platforms using 
+
+cucumber, JUnit, Selenium RC, Eclipse and Appium.</h4>
+				<br>A one line summary of these tools is as below: 
+				<br>
+				<br>ECLIPSE		: A GUI that allows coding and use of following technologies. 
+				<br>
+				<br>CUCUMBER	: framework that allows writing code to defined acceptance driven tests.
+				<br>
+				<br>JUNIT		: API that provides functions to test via code. E.G. AssertEquals("a","a") will return 
+
+true.
+				<br>
+				<br>SELENIUM RC	: API that provides functions to drive html pages. E.G. browser.findelement(byID
+
+("submit")).click() would click submit button.<br> 
+				<br>
+				<br>APPIUM		: An application server like TOMCAT for mobiles. It hosts mobile devices (iOS and 
+
+Android), so tests can be run on them.<br> 
+				<br>
+				<br> The development utilised agile software development as evidenced by the board below:
+				<br>
+				<div class="holder">
+    					<img src="AgileBoard.jpg" class="width70"/>
+				</div>	
+				<br>
+				<br> <a href="#toc">Back to Table Of Contents</a>	
+		</div>
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<h3  id="whatItDoes">2. WHAT THIS WEB APPLICATION DOES</h3>
+				This application is about setting up an online web calendar. As an example, below is one user story from sprint 1, 
+
+for logon, which has been fully implemented with added security: 
+				<br>
+				<div class="holder">
+    					<img src="Sprint1Story1.jpg" class="width70"/>
+				</div>	
+				<br>
+				<br>The above story implemented the following:
+				<br>
+				<br>1. Takes user input in the form of username and password,
+				<br>
+				<br>2. On selecting submit button, validates the credentials via checking a MySql database.
+				<br>
+				<br>3. If the credentials authenticate successfully, it presents a welcome user message.
+				<br>
+				<br>4. If the credentials do NOT authenticate successfully, it presents a "invalid credentials" welcome message. 	
+				<br>
+				<br> <a href="#toc">Back to Table Of Contents</a>			   
+				
+		</td>
+	</tr>			
+	<tr>	
+		<td>
+			<h3 id="whyItIsImportant">3. WHY IS IT IMPORTANT - Cucumber-Java-Selenium web browser automation</h3>
+				<h4>This application has been developed entirely using test driven development.</h4>
+				 The steps followed were to first develop the cucumber scripts to drive selenium tests followed by writing the 
+
+code. In particular:
+				<table>
+					<tr>
+						<td>
+							<h5>PRE-REQUISITE</h5>
+								<br>1. ECLIPSE setup with Selenium RC, JUnit and cucumber.
+								<br>2. For web development using cloud deployment, Eclipse was setup with jBoss 
+
+Openshift tools, red hat console (rhc) and GIT for configuration management. 
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 1</h5>
+								<br>Specify Acceptance based test in simple word processor. 
+								<br><div class="holder">
+    									<img src="AcceptanceTestExample.jpg" class="width70"/>
+								</div>		
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 2</h5>
+								<br>Using cucumber framework, write code for tests using selenium RC API.  
+								<br>NOTE: The text "@Given" in screenshot below is followed by the test steps 
+
+from STEP 1  
+								<br><div class="holder">
+    									<img src="CucumberWithSeleniumCode.jpg" class="width70"/>
+								</div>	
+								
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 3</h5>
+								<br>Develop application to make cucumber tests pass (STEP 1). Progress able to be 
+
+monitored within seconds, by running the JUnit project.
+								<br><div class="holder">
+    									<img src="TDD_Run_Progress.jpg" class="width70"/>
+										<br><br> Cucumber can also be setup to produce a report like below: 
+										<br> Note: This report is from a different project:
+										<img src="images/CucumberTestResultsReport.png" class="left" width="100%"/>
+								</div>
+								<br>	
+								
+								<div class="holder">
+									
+							</div>
+					</tr>
+				</table>	
+				<br>
+				<br> <a href="#toc">Back to Table Of Contents</a>			 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h3 id="whyItIsImportant-Desktop">4. WHY IS IT IMPORTANT - Desktop App Automation via Power Automate (Low Code)</h3>
+			<p></p> Automating testing on web applications is just one aspect of quality assurance outcomes. Desktop applications is another major use case.
+			<br><br> So I created a desktop version of this web calendar application and automated its testing using Low code Microsoft Platform 'PowerAutomate':  	
+			<p></p>
+			<div class="holder">
+				<img src="images/DesktopApplicationTestAutomation.jpg" class="left" width="100%"/>
+		</div>
+		</td>
+
+	</tr>
+	<tr>	
+		<td>
+			<h3 id="ruby">5. TEST DRIVEN DEVELOPMENT USING RUBY PROGRAMMING LANGUAGE</h3>
+				<h4>The same Selenium tests were also written and run using Ruby language on Ruby Mine IDE software</h4>
+				 The steps followed were:
+				<table>
+					<tr>
+						<td>
+							<h5>PRE-REQUISITE</h5>
+								<br>1. Ruby version 2.0.0 installed.
+								<br>2. Ruby Mine IDE installed.
+								<br>3. Ruby Gems for RSpec, Capybara, Cucumber, activesupport, selenium-client, 
+
+selenium-webdriver run. 
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 1</h5>
+								<br>Specify Acceptance based test in simple word processor. 
+								<br><div class="holder">
+    									<img src="RubyTestSpecification.jpg" class="width70"/>
+								</div>	
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 2</h5>
+								<br>Using cucumber framework, write code for tests using selenium RC API.  
+								<br>NOTE: The text "When" in screenshot below is followed by the test steps from STEP 1  
+								<br><div class="holder">
+    									<img src="RubyImplementation.jpg" class="width70"/>
+								</div>	
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 3</h5>
+								<br>Develop application to make cucumber tests pass (STEP 1). Progress able to be 
+
+monitored within seconds, by running the Capybara project.
+    								<br><div class="holder">
+    									<img src="MonitorProgress.jpg" class="width70"/>
+								</div>	
+						</td>
+					</tr>
+				</table>	
+				<br>
+				<br> <a href="#toc">Back to Table Of Contents</a>			 
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<h3 id="mobile">6. TEST DRIVEN DEVELOPMENT ON MOBILE PLATFORM</h3>
+				<h4>The same Selenium tests were also run on an android device with operating system version 5.1.1</h4>
+				 The steps followed to setup the tests for the mobile were:
+				<table>
+					<tr>
+						<td>
+							<h5>PRE-REQUISITE</h5>
+								<br>1. ECLIPSE setup with Selenium RC, JUnit and cucumber.
+								<br>2. For web development using cloud deployment, Eclipse was setup with jBoss 
+
+Openshift tools, red hat console (rhc) and GIT for configuration management. 
+								<br>3. ANDROID SDK downloaded, Eclise setup with AVD manager and SDK Manager with 
+
+latest android phone emulators and environment variables setup.
+								<br>4. Appium application is dowloaded and launched. Java project created with 
+
+the Apium JARS for android and java selenium jars from seleniumHq downloads page->Selenium Client & WebDriver Language Bindings.
+								<br>5. AVD manager is used to create an emulator for a mobile device e.g. Android device below v5.1.1
+								<br>
+								<br><img src="images/success.jpg" alt="Android device created"> <br>
+								
+									
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 1</h5>
+								<br>Run the appium server to launch the Android device, in my case an emulator.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 2</h5>
+								<br>Using cucumber framework, write code for tests using selenium RC API.  
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 3</h5>
+								<br>Develop application to make cucumber tests pass (STEP 1). Progress able to be 
+
+monitored within seconds, by running the JUnit project.
+								<br> In particular:
+								<br>
+								<br>a) Cucumber uses Selenium automation to enter data in mobile
+								<br>
+								<br><img src="SeleniumDrivenMobileDataEntry.jpg" alt="Selenium enters data in 
+
+mobile"> 
+								<br>
+								<br>b) Cucumber uses Selenium automation to verify data presented in browser on 
+
+mobile 
+								<br><img src="SeleniumDrivenVerification.jpg" alt="Selenium verifies page content 
+
+in mobile">     
+								<br>
+								<br>c) Cucumber results displayed graphically at bottom of below screenshot with 
+
+selenium code on top
+								<br><img src="SUMMARY_MobileTestingWithSeleniumCucumberJUnit.jpg" alt="Using 
+
+Cucumber to drive selenium automation on mobile">     
+																
+						</td>
+					</tr>
+				</table>			 
+				<br>
+				<br> <a href="#toc">Back to Table Of Contents</a>
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<h3 id="nonfunctionaltesting"> 7. NON-FUNCTIONAL TESTING</h3>
+				<p><h4> SECURITY IMPLEMENTED (OWASP Top 10)</h4></p>
+
+				<br>
+				<br>In terms of Security, the application implements:
+				<br>
+				<br>a. Captcha to verify that the user is not one of many robots generated by say a performance testing tool. 	
+				<br>
+				<br>b. Validation of user input to verify that it is not an attempt to delete tables. Refer "A1-Injection" (SQL) in <a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">OWASP top ten</a>. 	
+				<br>
+				<br>b. Re-validation of user credentials before display of each page requiring privileged access, so that only authorised requests for pages are accepted. Refer "A7- Missing Function Level Access Control" in <a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">OWASP top ten</a>. 	
+				<br>
+				<p><h4> PERFORMANCE TESTING USING JMETER</h4></p>
+				<br><br> Jmeter was used to baseline performance for a selection of pages from the web application, under load of 20 simultaneous users (one ramping up every second):	
+				<br><img src="images/WebCalendarJMeterReport.jpg" width="70%" alt="Jmeter running 20 users on webcalendar website together">     
+				<br>
+
+				<br> <a href="#toc">Back to Table Of Contents</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h3 id="useofframeworks"> 8. USE OF FRAMEWORKS</h3>
+				<p>Frameworks use to hold common code for reuse, across the test team</h4></p>
+				<br><i>Note: My framework is in java and is setup in a multi module (three) project in Eclipse. The three independant modules hold code, host code and test code, respectively:</i>
+				<br><br> 1. <i>Library module</i>: All the reusable code is in it. 
+				<br><br> 2. <i>Application module</i>: It is a Spring Boot microservice sits infront of library. Anyone with access to microservice can use its API to run Selenium tests without ever dealing with browsers.
+				<br><br> 3. <i>Cucumber-Junit module</i>: For testing puposes, my framework also has a module that consumes the Application Module.</i>
+				<br><br>Following is evidence of the Application Module working via API use in Postman:
+				<br><img src="images/SeleniumMicroservice.JPG" width="100%" alt="FrameworkPostman">     
+				<br><br>Following is evidence of Reusable code in library, which is available to application module as a service:
+				<br><img src="images/EvidenceOfFramework.JPG" width="100%" alt="FrameworkLibrary">     
+				<br> Note: The above screenshot also shows successful running of cucumber Junit tests in the bottom panel. The Github Repository is linked in Login page (though this one is a private repository). 
+
+				<br> <a href="#toc">Back to Table Of Contents</a>
+		</td>
+	</tr>	
+</table>
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">back</a> to Top of Page
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">back</a> to details of web services integration used
+<br> <a href="https://testdrivendevelopment.azurewebsites.net" target="_top">back</a> to login page 
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">back </a> to details of Continuous integration using Jenkins implemented
+<br> <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html> to details of Azure hosted scalable microservice based setup of this site</a> </h5>
+<br>�Jay Sarna 2023   
+  
+</div>
+</section>
+</body>
+</html>
+        

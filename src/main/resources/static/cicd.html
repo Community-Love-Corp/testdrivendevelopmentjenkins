@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Jenkins</title>
+  
+<style>
+section{
+  display: block;
+}
+
+body, div {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+#header {
+    background:orange;
+}
+#container {
+    background:blue;
+}
+#content {
+    background:pink;
+}
+#footer {
+    background:green;
+}
+
+.holder {   
+  width: auto;
+  display: inline-block;
+}
+
+.width70 {
+  width: 70%; 
+  height: auto;    
+}​
+
+.width30 {
+  width: 30%; 
+  height: auto;    
+}​
+
+.width100 {
+  width: 100%; 
+  height: auto;    
+}​
+
+.flex-init-setup {
+     display: -webkit-box;
+     display: -moz-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+ }
+ .flex-ppal-setup {
+     -webkit-flex-flow: column wrap;
+     -moz-flex-flow: column wrap;
+     flex-flow: column wrap;
+     -webkit-justify-content: center;
+     -moz-justify-content: center;
+     justify-content: center;
+ }
+ </style>
+
+</head>
+<body>
+
+<section id="container flex-init-setup flex-ppal-setup">
+<div class="header"> 
+<h1>Web Calendar - Continuous Integration using Jenkins</h1>
+<br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page 
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html">back</a> to details of Automation used
+<br> <a href="https://testdrivendevelopment.azurewebsites.net/integration.html">back</a> to details of SOAP Web Services Integration implemented
+<br> <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html> to details of Azure hosted scalable microservice based setup of this site</a> </h5>
+</div>
+</section>
+<p></p>
+<br>
+<table border="1">
+	<tr>
+		<td>
+			<h2 id="toc"> Table of Contents</h2>
+			<br>
+			<br>1. <a href="#purpose">PURPOSE</a> 
+			<br>
+			<br>2. <a href="#whatItIntegratesWith">WHAT DOES IT INTEGRATE WITH</a>
+			<br>
+			<br>3. <a href="#whyItIsImportant">WHY IS IT IMPORTANT</a>
+			<br>
+			<br>4. <a href="#howDoesItIntegrate">HOW DOES IT INTEGRATE</a>
+			<br>
+			<br> <a href="cicd.html" target="_top">Back to Top</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<div class="header">
+			<h3 id="purpose">1. PURPOSE</h3>
+				<h4>To demonstrate that it is possible to trigger and run automated regression tests automatically and remotely, every time a change is committed to a code repository.</h4>
+				<br>
+				<br> <a href="#toc">Back to Table Of Contents</a>	
+		</div>
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<h3  id="whatItIntegratesWith">2. WHAT DOES IT INTEGRATE WITH</h3>
+				<br> This application integrates with <strong>JENKINS</strong>, a continuous integration and continuous delivery open source tool.
+				<br>
+				<br> <a href="#toc">Back to Table Of Contents</a>
+				<br>
+		</td>
+	</tr>			
+	<tr>	
+		<td>
+			<h3 id="whyItIsImportant">3. WHY IS IT IMPORTANT</h3>
+				<br> To understand the importance of what has been achieved, it will be helpful to understand the promise continous integration holds in terms of finding early defects for software testers.
+				<br>
+				<br><Strong>BACKGROUND FROM SOFTWARE TESTING PERSPECTIVE</Strong>
+				<br>
+				<br>WITHOUT CONTINUOUS INTEGRATION
+				<br> 
+				<br>In the past, several developers working on the same project using a configuration management tool like SVN,GIT etc. could checkin their changes to the code repository and run the build. This would continue till the application was built and ready to test, only then the functional and integration defect finding tasks could begin. Unfortunately in testing processes, the gnarly and critical task of regression defect finding due to coupled code tends to be the last of the tests planned to be run. Depending on the "software development lifecycle" followed, testing would only start days/weeks/months, essentially after the commencement of the project.
+  				<br>
+  				<br>WITH CONTINUOUS INTEGRATION
+  				<br>
+  				<br>It is a testing principle that the sooner the defects are found in software development, the cheaper they are to fix (Refer ISTQB principles). Continuous integration's benefit is that it allows us to find defects early. So, in a development team implementing continuous integration with say Jenkins, the automated regression tests could be added to the build process such that they are run every time the build is run by Jenkins. Jenkins can be configured to trigger a build after each change is committed/pushed to the code branch or scheduled nightly. This means that critical regression defects are found instantaneously as the code is being developed, rather than being found days/weeks/months later after the code is deployed to the test environment.
+  				<br>	 
+  				<br><strong>WHAT IT MEANS TO THE WEB CALENDAR APPLICATION</strong>
+				<h4>This application is configured to auto-run Selenium tests using the TestNG framework right after the application build is triggered in Jenkins. It is important to note that the build is displayed to Jenkins viewers as a PASS only when the build passes and these tests pass. So critical defects are found instantly. See below for how it works:</h4>
+				<br> <a href="#toc">Back to Table Of Contents</a>			 
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<h3 id="howDoesItIntegrate">4. HOW DOES IT INTEGRATE</h3>
+				<h4>Three step process was followed to achieve the integration:</h4>
+				<table>
+					<tr>
+						<td>
+							<h5>OBJECTIVE</h5>
+								<br>Please see "WHAT IT MEANS TO THE WEB CALENDAR APPLICATION" in the "Why is it important" section <a href="#whyItIsImportant">above</a>.								 
+								<br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>PRE-REQUISITE</h5>
+								<br>1. Selenium RC and TestNG running on Eclipse IDE (software development tool)
+								<br>2. Openshift account setup with RHC and GIT configuration management tools setup.
+								<br>3. Jenkins setup on localhost via placing the downloadable jenkins.war file into the webapps folder of Apache TOMCAT installation. 
+								<br>4. Jenkins has "GIT" plugin installed								 
+								<br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 1</h5>
+								<br> Setup the Git repository for the web calendar application so that its build can be run from Jenkins. 
+								<br> What success meant: Builds for the Openshift web calendar application can be run remotely from Jenkins.
+								<br>
+								<br>The image below displays the Jenkins job for web calendar application.
+								<br><div class="holder">
+    									<img src="images/JenkinsCodeIntegration.jpg" class="width70"/>
+								</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 2</h5>
+								<br> Setup a Selenium automation regression test suite using TestNG framework for testing the application. 
+								<br> What success meant: A selenium test suite exists for the application that can be run from command prompt.
+								<br>
+								<br>The image below displays the Test NGSelenium test suite.
+								<br><div class="holder">
+    									<img src="images/TestNGSeleniumTestSuite.jpg" class="width70"/>
+								</div>
+								<br>The image below displays the test suite can be run from command prompt.
+								<br><div class="holder">
+    									<img src="images/CMDTestNG.jpg" class="width70"/>
+								</div>
+								
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 3</h5>
+								<br>Setup Jenkins to run the automation test suite every time a build is triggered  
+								<br>What success meant: Jenkins will run the automation scripts right after every application build.  
+								<br>
+								<br> The windows command prompt instructions to Jenkins to run the automation tests. 
+								<br><div class="holder">
+    									<img src="images/CMDJenkins.jpg" class="width70"/>
+								</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>STEP 4</h5>
+								<br>Test the running of the build in scenarios where automation tests pass and automation tests fail.  
+    							<br>What success meant: the web calendar application's build passes when automation tests pass, and more importantly, it fails when automation tests fail even if the actual code build passed. 
+    							<br>
+    							<br> The image below displays how web calendar application build passes when the automation tests pass.
+    							<br><div class="holder">
+    									<img src="images/AutomatedTestsPass.jpg" class="width70"/>
+								</div>
+    							<br>
+    							<br> The image below displays how web calendar application build fails when the automation tests fail, even if the build of the code branch succeeded.
+    							<br><div class="holder">
+    									<img src="images/AutomatedTestsFail.jpg" class="width70"/>
+								</div>	
+						</td>
+					</tr>
+				</table>	
+				<br>
+				<br> <a href="#toc">Back to Table Of Contents</a>			 
+		</td>
+	</tr>
+</table>
+<br> <br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page 
+ <br> [2016] For details on <u>Test Automation</u> used, please click <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">here</a>
+ <br> [2016] For details on <u>Web Services Integration</u> used, please click <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">here</a>
+ <br> [2016] For details of <u>Continuous integration using Jenkins</u> implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">here</a>
+ <br> [2023] For details of <u>Cloud hosting, microservice utilisation and cloud based scalable database use </u>, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> 
+
+ <br><p></p>
+  <h5>©Jay Sarna, Wellington, New Zealand - last update - June 2023</h5>
+  <br> Please seek my permission before using and/or reproducing any content on this website. I am contactable via messenger on facebook.
+</body>
+</html>
+        

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Driven Development Login</title>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<h2>Web Calendar Login - Registeration - Page under construction</h2>
+<br>
+<br>
+<form th:action="@{/addRecordToDB}" th:object="${candidate}" method="post">
+    <div class="form-group">
+      <div class="form-group">
+        <label for="exampleInputName"><b>Name</b></label>
+        <input type="text" th:field="*{name}" class="form-control" id="exampleInputUsername1" placeholder="Name">
+      </div>
+    <div class="form-group">
+      <label for="exampleInputAge"><b>Age</b></label>
+      <input type="number" step="1" th:field="*{age}" class="form-control" id="exampleInputPassword1" placeholder="Age">
+    </div>
+    <div class="g-recaptcha"
+            data-sitekey="6LffHyETAAAAAN-vHjs7KCoSVEWAArUEkcsRSLyS" required></div>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+<p></p>
+<h5> For details on Automation used, please click <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html">here</a> </h5> 
+<h5> For details on Web Services Integration used, please click <a href="https://testdrivendevelopment.azurewebsites.net/integration.html">here</a> </h5>
+<h5> For details of Continuous integration using Jenkins implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html">cicd</a> </h5>
+<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<br>�Jay Sarna 2023
+
+</body>	
+</html>
