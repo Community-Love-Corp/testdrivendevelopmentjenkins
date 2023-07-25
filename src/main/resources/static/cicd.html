@@ -3,8 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-cache"/>
+  <script type="text/javascript">
+    var head  = document.getElementsByTagName('head')[0];
+    var base = document.createElement("base");
+    var url = sessionStorage.getItem("base_url");
+    base.href = url;
+    head.appendChild(base);
+  </script>
   <title>Jenkins</title>
-  
 <style>
 section{
   display: block;
@@ -73,11 +80,11 @@ html, body {
 
 <section id="container flex-init-setup flex-ppal-setup">
 <div class="header"> 
-<h1>Web Calendar - Continuous Integration using Jenkins</h1>
-<br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page 
-<br> <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html">back</a> to details of Automation used
-<br> <a href="https://testdrivendevelopment.azurewebsites.net/integration.html">back</a> to details of SOAP Web Services Integration implemented
-<br> <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html> to details of Azure hosted scalable microservice based setup of this site</a> </h5>
+<h1>Web Calendar - Continuous Integration and Continous Deployment (CI/CD) using Jenkins</h1>
+<br> <a href="">back</a> to login page 
+<br> <a href="/detail2.html">back</a> to details of Automation used
+<br> <a href="/integration.html">back</a> to details of SOAP Web Services Integration implemented
+<br> <a href=/microservices-cosmosdb-azure.html> to details of Azure hosted scalable microservice based setup of this site</a> </h5>
 </div>
 </section>
 <p></p>
@@ -89,11 +96,13 @@ html, body {
 			<br>
 			<br>1. <a href="#purpose">PURPOSE</a> 
 			<br>
-			<br>2. <a href="#whatItIntegratesWith">WHAT DOES IT INTEGRATE WITH</a>
+			<br>2. <a href="#whatItIntegratesWith">  WHAT DOES IT INTEGRATE WITH - ON PREM CI WITH JENKINS</a>
 			<br>
 			<br>3. <a href="#whyItIsImportant">WHY IS IT IMPORTANT</a>
 			<br>
-			<br>4. <a href="#howDoesItIntegrate">HOW DOES IT INTEGRATE</a>
+			<br>4. <a href="#howDoesItIntegrate"> HOW DOES IT INTEGRATE</a>
+			<br>
+			<br>5. <a href="#jenkinsXIntegration"><u>CLOUD HOSTED CI/CD - INTEGRATION WITH JENKINS X</u></a>
 			<br>
 			<br> <a href="cicd.html" target="_top">Back to Top</a>
 		</td>
@@ -102,15 +111,15 @@ html, body {
 		<td>
 		<div class="header">
 			<h3 id="purpose">1. PURPOSE</h3>
-				<h4>To demonstrate that it is possible to trigger and run automated regression tests automatically and remotely, every time a change is committed to a code repository.</h4>
-				<br>
-				<br> <a href="#toc">Back to Table Of Contents</a>	
+				<h4>To demonstrate that it is possible to trigger and run automated regression tests automatically and remotely, every time a change is committed to a code repository. This is done for Cloud Hosted Continous Integration / Continous deployment (CI/CD) a.k.a Devops system and on premises CI/CD via Jenkins X and Jenkins, respectfully.</h4>
+				<br> It is worth noting that Jenkins is an open source tool and <strong> completely free </strong>. The Jenkins X demostration here was done in Google cloud using free 'new starter' credit and with guidance from Trainings and tutorials on the web. 
+				<br><br> <a href="#toc">Back to Table Of Contents</a>	
 		</div>
 		</td>
 	</tr>
 	<tr>	
 		<td>
-			<h3  id="whatItIntegratesWith">2. WHAT DOES IT INTEGRATE WITH</h3>
+			<h3  id="whatItIntegratesWith">2. WHAT DOES IT INTEGRATE WITH - ON PREM CI WITH JENKINS</h3>
 				<br> This application integrates with <strong>JENKINS</strong>, a continuous integration and continuous delivery open source tool.
 				<br>
 				<br> <a href="#toc">Back to Table Of Contents</a>
@@ -222,12 +231,63 @@ html, body {
 				<br> <a href="#toc">Back to Table Of Contents</a>			 
 		</td>
 	</tr>
+	<tr>	
+		<td>
+			<h3  id="jenkinsXIntegration">5. CLOUD HOSTED CI/CD - INTEGRATION WITH 'JENKINS X version 3'</h3>
+				<br> This application is now hosted on Git hub and it integrates with '<strong>JENKINS X</strong>', a continuous integration and continuous delivery open source tool for the cloud, which uses Docker containers and Kubernetes to manage CI/CD. Jenkins X is an opinionated CI/CD engine, i.e. it has been designed and built to address Devops and developer needs, e.g. when a commit is made to a git repository, Jenkins X is listening and it will trigger pipelines with specific knowledge of what files to add/change etc based on your build pack/application type (e.g. maven, nodejs, javascript etc.).
+				<br><h5>2.1 To use Jenkins X CI/CD, following steps roughly need to be followed:</h5>
+				<br>a. In a cloud environment (I used google cloud but instructions for Azure, Amazon etc. available too), use the packages provided by Jenkins X to setup a Kubernetes cluster to host Jenkins X.
+				<br><br>b. Use JX cli to import your project from a Source Control Manager e.g. Github, to Jenkins X Cluster.
+				<br><h5>2.2 Some Benefits of using Cloud hosted CI/CD</h5>
+				<br>a. <i>High Reliability</i>: Kubernetes offers high assurance as if one pod 'goes down'/hangs from e.g. a DDOS attack, a new pod is spawned near instantaneously and application returns. 
+				<br><br>b. <i>Benefits of containers</i>: Kubernetes uses containers and they come with their benefits e.g. immutable, light weight, easily reusable due to yaml definition etc.
+				<br><br>c. <i>Multiple environments can be created on demand - [default] Preview, Staging and Production</i>: Continous Deployment (CD) requires the Devops flow - When code changes ready on a feature/release branch, dev creates a pull request to merge with Main branch. This leads to auto build, running of automated tests and deployment of code to a preview environment. If it passes validation, it can be deployed to staging/quality environment. This also triggers a pipeline which sets up a pull request in the Jenkins X cluster repository for release to Production. On approval of that pull request, the changes are deployed to Production. 
+				<br>For Example, when this WebCalendar application was deployed, the Jenkins X build logs show the environments being created - Staging and Production. These are initiated by Jenkins X creating two pull requests on the repository (#6 and #7 for Staging and Production in this case, respectfully). 
+				<br><div class="holder">
+					<img src="images/JenkinsXDeploymentToEnvsInLogs.jpg" class="width70"/>
+				</div>
+				<br><br> These corroborate with two pipelines running in Jenkins X UI (Octant), setting up the app on Staging and Prod: 
+				<br><div class="holder">
+					<img src="images/JenkinsXDeploymentToEnvs.jpg" class="width70"/>
+				</div>
+				<br><br> <b>i) Preview</b>When I want to make change to application, I create a feature branch, make changes to the code, commit them locally and then push them to a new corresponding branch in remote repo. To take this change to Production, I would create a Pull Request (PR) for this feature branch to merge in main branch. This creates a preview environment automatically, where I can validate my changes: 
+				<br><div class="holder">
+					<img src="images/JenkinsXpreviewEnv.JPG" class="width70"/>
+				</div>
+				<br><br> </b>ii) Staging</b> If I am happy with the preview, I approve the changes to be be deployed to the staging environment. Approval provided in Github via a comment on PR: 
+				<br><b>RESULT</b>: This is the successful deployment of the application in staging environment (namespace: jx-staging):
+				<br><div class="holder">
+					<img src="images/JenkinsXStagingEnv.jpg" class="width70"/>
+				</div>					
+				<br> </b>iii) Production</b>The deployment to the Production environment requires approval on the Github pull request for cluster Repo (look for pull requests there from this app). Approval provided in Github via a comment on PR:					
+				<br><div class="holder">
+					<img src="images/JenkinsXPromoteToProd.JPG" class="width70"/>
+				</div>
+				<br><br> <b>RESULT</b>: This is the successful deployment of the application in Production environment (namespace: jx-Production):
+				<br><i>Note: It is possible to setup custom DNS for achieving desired url names. I have not configured that in this production url yet.</i>
+				<br><div class="holder">
+					<img src="images/JenkinsX_CICD_Production.JPG" class="width70"/>
+				</div>					
+
+
+				<br><br>d. <i>DevOps Test Automation</i>: Standard benefit of Continous Integration that you can have inbuilt quality as tests can be automated to run after the build.
+				<br><br> Note: At the moment, it only show two tests, however, BDD/cucumber tests can also be wired here. BDD/Cucumber tests are explained in Test Automation link below.
+				<br><div class="holder">
+					<img src="images/TestAutomationEvindenceWithJenkinsX.jpg" class="width70"/>
+				</div>	
+				<br><br>e. <i>More Coming</i>
+
+				<br> <a href="#toc">Back to Table Of Contents</a>
+				<br>
+		</td>
+	</tr>			
+
 </table>
-<br> <br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page 
- <br> [2016] For details on <u>Test Automation</u> used, please click <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">here</a>
- <br> [2016] For details on <u>Web Services Integration</u> used, please click <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">here</a>
- <br> [2016] For details of <u>Continuous integration using Jenkins</u> implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">here</a>
- <br> [2023] For details of <u>Cloud hosting, microservice utilisation and cloud based scalable database use </u>, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> 
+<br> <br> <a href="">back</a> to login page 
+ <br> [2016] For details on <u>Test Automation</u> used, please click <a href="/detail2.html" target="_top">here</a>
+ <br> [2016] For details on <u>Web Services Integration</u> used, please click <a href="/integration.html" target="_top">here</a>
+ <br> [2016] For details of <u>Continuous Integration and Continuous Deployment (CI/CD) using 'onprem and cloud Jenkins '</u> implemented, please click <a href="/cicd.html" target="_top">here</a>
+ <br> [2023] For details of <u>Cloud hosting, microservice utilisation and cloud based scalable database use </u>, click <a href=/microservices-cosmosdb-azure.html target="_top">here</a> 
 
  <br><p></p>
   <h5>©Jay Sarna, Wellington, New Zealand - last update - June 2023</h5>

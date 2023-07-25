@@ -3,18 +3,26 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <style>
-table td{
-vertical-align:top;
-border:solid 1px #888;
-padding:10px;
-}
-
+        table td{
+        vertical-align:top;
+        border:solid 1px #888;
+        padding:10px;
+        }
     </style>
+  <meta http-equiv="Cache-Control" content="no-cache"/>
+  <script type="text/javascript">
+    var head  = document.getElementsByTagName('head')[0];
+    var base = document.createElement("base");
+    var url = sessionStorage.getItem("base_url");
+    base.href = url;
+    head.appendChild(base);
+  </script>
+
 </head>
 <body>
 <h1>My Thymeleaf Error Page</h1>
 <br>
-<br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page
+<br> <a href="">back</a> to login page
 <br>
 <table>
     <tr>
@@ -49,10 +57,10 @@ padding:10px;
     </tr>
 </table>
 <br>
-<h5> For details on Automation used, please click <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">here</a> </h5> 
-<h5> For details on Web Services Integration used, please click <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">here</a> </h5>
-<h5> For details of Continuous integration using Jenkins implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">here</a> </h5>
-<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<h5> For details on Automation used, please click <a href="/detail2.html" target="_top">here</a> </h5> 
+<h5> For details on Web Services Integration used, please click <a href="/integration.html" target="_top">here</a> </h5>
+<h5> For details of Continuous Integration and Continuous Deployment (CI/CD) using 'onprem and cloud Jenkins ' implemented, please click <a href="/cicd.html" target="_top">here</a> </h5>
+<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
 <br>�Jay Sarna 2023
 </body>
 </html>

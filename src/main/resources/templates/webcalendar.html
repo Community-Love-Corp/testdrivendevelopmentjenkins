@@ -5,6 +5,14 @@
     <title>Web Calendar</title>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <script type="text/javascript">
+      var head  = document.getElementsByTagName('head')[0];
+      var base = document.createElement("base");
+      var url = sessionStorage.getItem("base_url");
+      base.href = url;
+      head.appendChild(base);
+    </script>
 </head>
 <body>
 <h1>Calculate weekdays for first and last days of a month</h1>  />
@@ -83,16 +91,16 @@
 
 <script type="text/javascript">
     document.getElementById("logout").onclick = function () {
-        location.href = "https://testdrivendevelopment.azurewebsites.net";
+        location.href = "";
     };
 </script>-->
-<button onclick="location.href = 'https://testdrivendevelopment.azurewebsites.net';" id="myButton" class="float-left submit-button" >Logout</button>
+<button onclick="location.href = '';" id="myButton" class="float-left submit-button" >Logout</button>
 <br>
 <br>
-<h5> For details on <u>Test Automation</u> used, please click <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html" target="_top">here</a> </h5> 
-<h5> For details on <u>Web Services Integration</u> used, please click <a href="https://testdrivendevelopment.azurewebsites.net/integration.html" target="_top">here</a> </h5>
-<h5> For details of <u>Continuous integration using Jenkins</u> implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html" target="_top">here</a> </h5>
-<h5> For details of <u>Cloud hosting, microservice utilisation and cloud based scalable database use </u>, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<h5> For details on <u>Test Automation</u> used, please click <a href="/detail2.html" target="_top">here</a> </h5> 
+<h5> For details on <u>Web Services Integration</u> used, please click <a href="/integration.html" target="_top">here</a> </h5>
+<h5> For details of <u>Continuous Integration and Continuous Deployment (CI/CD) using 'onprem and cloud Jenkins '</u> implemented, please click <a href="/cicd.html" target="_top">here</a> </h5>
+<h5> For details of <u>Cloud hosting, microservice utilisation and cloud based scalable database use </u>, click <a href=/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
 <br>�Jay Sarna 2023
 </body>
 </html>

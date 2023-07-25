@@ -2,6 +2,14 @@
 <html>
     <head>
         <title> Web Calendar Form</title>
+        <meta http-equiv="Cache-Control" content="no-cache"/>
+        <script type="text/javascript">
+          var head  = document.getElementsByTagName('head')[0];
+          var base = document.createElement("base");
+          var url = sessionStorage.getItem("base_url");
+          base.href = url;
+          head.appendChild(base);
+        </script>
         <script type="text/javascript" src="login.js"></script>
         <script type="text/javascript">
             //sessionStorage.setItem("firstload","true");
