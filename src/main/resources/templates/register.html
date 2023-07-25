@@ -5,6 +5,14 @@
     <title>Test Driven Development Login</title>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <script type="text/javascript">
+      var head  = document.getElementsByTagName('head')[0];
+      var base = document.createElement("base");
+      var url = sessionStorage.getItem("base_url");
+      base.href = url;
+      head.appendChild(base);
+    </script>
 </head>
 <body>
 <h2>Web Calendar Login - Registeration - Page under construction</h2>
@@ -25,10 +33,10 @@
     <button type="submit" class="btn btn-primary">Register</button>
   </form>
 <p></p>
-<h5> For details on Automation used, please click <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html">here</a> </h5> 
-<h5> For details on Web Services Integration used, please click <a href="https://testdrivendevelopment.azurewebsites.net/integration.html">here</a> </h5>
-<h5> For details of Continuous integration using Jenkins implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html">cicd</a> </h5>
-<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<h5> For details on Automation used, please click <a href="/detail2.html">here</a> </h5> 
+<h5> For details on Web Services Integration used, please click <a href="/integration.html">here</a> </h5>
+<h5> For details of Continuous integration using Jenkins implemented, please click <a href="/cicd.html">cicd</a> </h5>
+<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
 <br>�Jay Sarna 2023
 
 </body>	

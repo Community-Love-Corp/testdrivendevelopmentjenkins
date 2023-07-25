@@ -2,6 +2,14 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <script type="text/javascript">
+      var head  = document.getElementsByTagName('head')[0];
+      var base = document.createElement("base");
+      var url = sessionStorage.getItem("base_url");
+      base.href = url;
+      head.appendChild(base);
+    </script>
     <title>Test Driven Development Login</title>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

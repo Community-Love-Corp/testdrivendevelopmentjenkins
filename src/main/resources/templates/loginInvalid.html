@@ -2,19 +2,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Web Calendar login invalid</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <script type="text/javascript">
+      var head  = document.getElementsByTagName('head')[0];
+      var base = document.createElement("base");
+      var url = sessionStorage.getItem("base_url");
+      base.href = url;
+      head.appendChild(base);
+    </script>
+    <title>Web Calendar login invalid</title>
 </head>
 <body>
 <h1> Web Calendar Homepage - User Validation failure on 'Login' or 'Registeration' page</h1> 
 <br> Credentials provided on login page or Details provided on Registeration page are invalid. Please try 'Sign In' or 'Register' again.
 <br>
-<br> <a href="https://testdrivendevelopment.azurewebsites.net">back</a> to login page
-<br> <a href="https://testdrivendevelopment.azurewebsites.net/register">back</a> to Registeration page		
-<h5> For details on Automation used, please click <a href="https://testdrivendevelopment.azurewebsites.net/detail2.html">here</a> </h5> 
-<h5> For details on Web Services Integration used, please click <a href="https://testdrivendevelopment.azurewebsites.net/integration.html">here</a> </h5>
-<h5> For details of Continuous integration using Jenkins implemented, please click <a href="https://testdrivendevelopment.azurewebsites.net/cicd.html">cicd</a> </h5>
-<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=https://testdrivendevelopment.azurewebsites.net/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
+<br> <a href="">back</a> to login page
+<br> <a href="/register">back</a> to Registeration page		
+<h5> For details on Automation used, please click <a href="/detail2.html">here</a> </h5> 
+<h5> For details on Web Services Integration used, please click <a href="/integration.html">here</a> </h5>
+<h5> For details of Continuous integration using Jenkins implemented, please click <a href="/cicd.html">cicd</a> </h5>
+<h5> For details of Cloud hosting, microservice utilisation and cloud based scalable database use, click <a href=/microservices-cosmosdb-azure.html target="_top">here</a> </h5>
 <br>�Jay Sarna 2023
 
 </body>	
