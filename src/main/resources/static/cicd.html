@@ -88,24 +88,37 @@ html, body {
 </div>
 </section>
 <p></p>
-<br>
 <table border="1">
 	<tr>
 		<td>
 			<h2 id="toc"> Table of Contents</h2>
+
+			<br>1. <a href="/cicd.html#purpose">PURPOSE</a> 
 			<br>
-			<br>1. <a href="#purpose">PURPOSE</a> 
+			<br>2. <a href="/cicd.html#whatItIntegratesWith">  WHAT DOES IT INTEGRATE WITH - ON PREM CI WITH JENKINS</a>
 			<br>
-			<br>2. <a href="#whatItIntegratesWith">  WHAT DOES IT INTEGRATE WITH - ON PREM CI WITH JENKINS</a>
+			<br>3. <a href="/cicd.html#whyItIsImportant">WHY IS IT IMPORTANT</a>
 			<br>
-			<br>3. <a href="#whyItIsImportant">WHY IS IT IMPORTANT</a>
+			<br>4. <a href="/cicd.html#howDoesItIntegrate"> HOW DOES IT INTEGRATE</a>
 			<br>
-			<br>4. <a href="#howDoesItIntegrate"> HOW DOES IT INTEGRATE</a>
-			<br>
-			<br>5. <a href="#jenkinsXIntegration"><u>CLOUD HOSTED CI/CD - INTEGRATION WITH JENKINS X</u></a>
-			<br>
+			<br>5. <a href="/cicd.html#jenkinsXIntegration"><u>CLOUD HOSTED CI/CD - INTEGRATION WITH JENKINS X</u></a>
+			
+			<p style="text-indent: 20px"><a href="/cicd.html#5_1">5.1</a>How to Setup Jenkins X for CI/CD</p>
+			<p style="text-indent: 20px"><a href="/cicd.html#5_2">5.2</a> Some Benefits of using Cloud hosted CI/CD</p>
+			<p style="text-indent: 30px"><a href="/cicd.html#5_2_1">5.2.1</a> High Reliability</p>
+			<p style="text-indent: 30px"><a href="/cicd.html#5_2_2">5.2.2</a> Benefits of containers</p>
+			<p style="text-indent: 30px"><a href="/cicd.html#5_2_3">5.2.3</a> Multiple environments can be created on demand</p>
+			<p style="text-indent: 40px"><a href="/cicd.html#5_2_3_1">5.2.3.1</a> PRE-REQ- Environment creation during application setup in Jenkins X</p>
+			<p style="text-indent: 40px"><a href="/cicd.html#5_2_3_2">5.2.3.2</a> Scrum/Kanban Agile Iteration package scenario</p>
+			<p style="text-indent: 40px"><a href="/cicd.html#5_2_3_3">5.2.3.3</a> Release branch created with fixes and a Pull Request (PR) to merge with main branch</p>
+			<p style="text-indent: 40px"><a href="/cicd.html#5_2_3_4">5.2.3.4</a> Creation of pull request leads to Continous Integration (CI)</p>
+			<p style="text-indent: 40px"><a href="/cicd.html#5_2_3_5">5.2.3.5</a> Deployment to Quality Assurance(QA)/Staging Environment on approval</p>						
+			<p style="text-indent: 40px"><a href="/cicd.html#5_2_3_6">5.2.3.6</a> Promotion to the Production environment</p>
+			<p style="text-indent: 30px"><a href="/cicd.html#5_2_4">5.2.4</a> DevOps Test Automation:</p>
+			<p style="text-indent: 30px"><a href="/cicd.html#5_2_5">5.2.5</a> More Coming</p>
+					
 			<br> <a href="cicd.html" target="_top">Back to Top</a>
-		</td>
+		</td>	
 	</tr>
 	<tr>
 		<td>
@@ -113,7 +126,7 @@ html, body {
 			<h3 id="purpose">1. PURPOSE</h3>
 				<h4>To demonstrate that it is possible to trigger and run automated regression tests automatically and remotely, every time a change is committed to a code repository. This is done for Cloud Hosted Continous Integration / Continous deployment (CI/CD) a.k.a Devops system and on premises CI/CD via Jenkins X and Jenkins, respectfully.</h4>
 				<br> It is worth noting that Jenkins is an open source tool and <strong> completely free </strong>. The Jenkins X demostration here was done in Google cloud using free 'new starter' credit and with guidance from Trainings and tutorials on the web. 
-				<br><br> <a href="#toc">Back to Table Of Contents</a>	
+				<br><br> <a href="/cicd.html#toc">Back to Table Of Contents</a>	
 		</div>
 		</td>
 	</tr>
@@ -122,7 +135,7 @@ html, body {
 			<h3  id="whatItIntegratesWith">2. WHAT DOES IT INTEGRATE WITH - ON PREM CI WITH JENKINS</h3>
 				<br> This application integrates with <strong>JENKINS</strong>, a continuous integration and continuous delivery open source tool.
 				<br>
-				<br> <a href="#toc">Back to Table Of Contents</a>
+				<br> <a href="/cicd.html#toc">Back to Table Of Contents</a>
 				<br>
 		</td>
 	</tr>			
@@ -143,7 +156,7 @@ html, body {
   				<br>	 
   				<br><strong>WHAT IT MEANS TO THE WEB CALENDAR APPLICATION</strong>
 				<h4>This application is configured to auto-run Selenium tests using the TestNG framework right after the application build is triggered in Jenkins. It is important to note that the build is displayed to Jenkins viewers as a PASS only when the build passes and these tests pass. So critical defects are found instantly. See below for how it works:</h4>
-				<br> <a href="#toc">Back to Table Of Contents</a>			 
+				<br> <a href="/cicd.html#toc">Back to Table Of Contents</a>			 
 		</td>
 	</tr>
 	<tr>	
@@ -154,7 +167,7 @@ html, body {
 					<tr>
 						<td>
 							<h5>OBJECTIVE</h5>
-								<br>Please see "WHAT IT MEANS TO THE WEB CALENDAR APPLICATION" in the "Why is it important" section <a href="#whyItIsImportant">above</a>.								 
+								<br>Please see "WHAT IT MEANS TO THE WEB CALENDAR APPLICATION" in the "Why is it important" section <a href="/cicd.html#whyItIsImportant">above</a>.								 
 								<br>
 						</td>
 					</tr>
@@ -228,56 +241,74 @@ html, body {
 					</tr>
 				</table>	
 				<br>
-				<br> <a href="#toc">Back to Table Of Contents</a>			 
+				<br> <a href="/cicd.html#toc">Back to Table Of Contents</a>			 
 		</td>
 	</tr>
-	<tr>	
+	<tr>				
 		<td>
 			<h3  id="jenkinsXIntegration">5. CLOUD HOSTED CI/CD - INTEGRATION WITH 'JENKINS X version 3'</h3>
 				<br> This application is now hosted on Git hub and it integrates with '<strong>JENKINS X</strong>', a continuous integration and continuous delivery open source tool for the cloud, which uses Docker containers and Kubernetes to manage CI/CD. Jenkins X is an opinionated CI/CD engine, i.e. it has been designed and built to address Devops and developer needs, e.g. when a commit is made to a git repository, Jenkins X is listening and it will trigger pipelines with specific knowledge of what files to add/change etc based on your build pack/application type (e.g. maven, nodejs, javascript etc.).
-				<br><h5>2.1 To use Jenkins X CI/CD, following steps roughly need to be followed:</h5>
-				<br>a. In a cloud environment (I used google cloud but instructions for Azure, Amazon etc. available too), use the packages provided by Jenkins X to setup a Kubernetes cluster to host Jenkins X.
-				<br><br>b. Use JX cli to import your project from a Source Control Manager e.g. Github, to Jenkins X Cluster.
-				<br><h5>2.2 Some Benefits of using Cloud hosted CI/CD</h5>
-				<br>a. <i>High Reliability</i>: Kubernetes offers high assurance as if one pod 'goes down'/hangs from e.g. a DDOS attack, a new pod is spawned near instantaneously and application returns. 
-				<br><br>b. <i>Benefits of containers</i>: Kubernetes uses containers and they come with their benefits e.g. immutable, light weight, easily reusable due to yaml definition etc.
-				<br><br>c. <i>Multiple environments can be created on demand - [default] Preview, Staging and Production</i>: Continous Deployment (CD) requires the Devops flow - When code changes ready on a feature/release branch, dev creates a pull request to merge with Main branch. This leads to auto build, running of automated tests and deployment of code to a preview environment. If it passes validation, it can be deployed to staging/quality environment. This also triggers a pipeline which sets up a pull request in the Jenkins X cluster repository for release to Production. On approval of that pull request, the changes are deployed to Production. 
-				<br>For Example, when this WebCalendar application was deployed, the Jenkins X build logs show the environments being created - Staging and Production. These are initiated by Jenkins X creating two pull requests on the repository (#6 and #7 for Staging and Production in this case, respectfully). 
+				<br><h4 id="5_1">5.1 To use Jenkins X CI/CD, following steps roughly need to be followed:</h4>
+				<br><i id="5_1_1">5.1.1 Setup Jenkins Cluster: </i>In a cloud environment (I used google cloud but instructions for Azure, Amazon etc. available too), use the packages provided by Jenkins X to setup a Kubernetes cluster to host Jenkins X.
+				<br><br><i id="5_1_2">5.1.2 Setup application repository in Cluster: </i>5.1.2 Use JX cli to import your project from a Source Control Manager e.g. Github, to Jenkins X Cluster.
+				<br><h4 id="5_2">5.2 Some Benefits of using Cloud hosted CI/CD</h4>
+				<br><i id="5_2_1">5.2.1 High Reliability</i>: Kubernetes offers high assurance as if one pod 'goes down'/hangs from e.g. a DDOS attack, a new pod is spawned near instantaneously and application returns. 
+				<br><br><i id="5_2_2">5.2.2 Benefits of containers</i>: Kubernetes uses containers and they come with their benefits e.g. immutable, light weight, easily reusable due to yaml definition etc.
+				<br><br><i id="5_2_3">5.2.3 Multiple environments can be created on demand - [default] Preview, Staging and Production</i>: 
+				<br>Continous Deployment (CD) requires the Devops flow. This is best demostrated with an example:
+				<br><br> <u id="5_2_3_1">5.2.3.1 PRE-REQ- Environment creation during application setup in Jenkins X:</u> When this WebCalendar application was imported in Jenkins X platform, the build logs showed two environments were created - Staging and Production. These were initiated by Jenkins X creating two pull requests on the repository (#6 and #7 for Staging and Production in this case, respectfully). 
 				<br><div class="holder">
 					<img src="images/JenkinsXDeploymentToEnvsInLogs.jpg" class="width70"/>
 				</div>
-				<br><br> These corroborate with two pipelines running in Jenkins X UI (Octant), setting up the app on Staging and Prod: 
+				<br><br> These pull requests above corroborate with two pipelines running on Jenkins X UI (Octant) at the same time, from what I see deploying the app on separate containers for 'Staging' and 'Prod' in the pod created for the application in Jenkins X Kubernetes cluster: 
 				<br><div class="holder">
 					<img src="images/JenkinsXDeploymentToEnvs.jpg" class="width70"/>
 				</div>
-				<br><br> <b>i) Preview</b>When I want to make change to application, I create a feature branch, make changes to the code, commit them locally and then push them to a new corresponding branch in remote repo. To take this change to Production, I would create a Pull Request (PR) for this feature branch to merge in main branch. This creates a preview environment automatically, where I can validate my changes: 
+
+				<br> <br><u id="5_2_3_2">5.2.3.2 Scrum/Kanban Agile Iteration package scenario:</u> A fortnightly release is planned with bug/issue fixes, like two below:
+				<br><br> Issue 2: Webpages have hardcoded urls
+				<br><div class="holder">
+					<img src="images/cicdIssue2.JPG" class="width70"/>
+				</div>
+				<br><br> Issue 3: Make the Jenkins repo for testdrivendevelopment the Production Repo
+				<br><div class="holder">
+					<img src="images/cicdIssue3.JPG" class="width70"/>
+				</div>				
+				<br><br> <u id="5_2_3_3">5.2.3.3 Release branch created with fixes and a Pull Request (PR) to merge with main branch:</u> 
+				<br> Software Engineer creates a feature/release branch from main branch and makes fixes in it for release. Tests locally on his machine, then when ready creates a pull request to merge with repo's Main branch, in preparation for deployment to Production.
+				<br> <i>Note: The pull request description lists the two issues above prefixed with "Resolves" keyword. What this means is that, in addition to they getting linked to the PR, if this Pull Request is successful (changes make it to main branch), then these issues will be auto closed.</i> 	
+				<br><div class="holder">
+					<img src="images/CicdInitialPullRequest.JPG" class="width70"/>
+				</div>				
+				<br><br><u id="5_2_3_4">5.2.3.4 Creation of pull request leads to Continous Integration (CI) -</u> Jenkins X auto builds code, runs CI automated tests and auto deploys to a preview environment (see figure below) if all preceding steps pass. The pipeline logs in JX UI (octant) can show any details of test failures. 
 				<br><div class="holder">
 					<img src="images/JenkinsXpreviewEnv.JPG" class="width70"/>
 				</div>
-				<br><br> </b>ii) Staging</b> If I am happy with the preview, I approve the changes to be be deployed to the staging environment. Approval provided in Github via a comment on PR: 
-				<br><b>RESULT</b>: This is the successful deployment of the application in staging environment (namespace: jx-staging):
+
+				<br><br><u id="5_2_3_5">5.2.3.5 Deployment to Quality Assurance(QA)/Staging Environment on approval</u> - if the Authorised peer reviewer is happy with manual inspection in preview environment, a comment '/approve' can be placed in the PR from a person holding role of owner in the github repository. This will promote the preview environment to the Staging Environment.    
+				<br><b>RESULT</b>: Following is a successful deployment of the application in staging environment (namespace: jx-staging):
 				<br><div class="holder">
 					<img src="images/JenkinsXStagingEnv.jpg" class="width70"/>
-				</div>					
-				<br> </b>iii) Production</b>The deployment to the Production environment requires approval on the Github pull request for cluster Repo (look for pull requests there from this app). Approval provided in Github via a comment on PR:					
+				</div>
+				<br> <i>Note: Following this step (successful merge to Production) the feature branch auto destroy's itself.	This step also starts the process of Production deployment by auto creating a Github pull request for the Kubernetes Jenkins X cluster Repository (see step a)).</i>					
+				<br> <br><u id="5_2_3_6">5.2.3.6 Promotion to the Production environment: </u> Once test people get sign-off on release from QA/Staging environment, Production deployment is next. This is a bigger deal than affecting just a application repo and thus requires approval on the Cluster Repository. Approval provided in Github via a comment on PR by an owner of the cluster repo:					
 				<br><div class="holder">
 					<img src="images/JenkinsXPromoteToProd.JPG" class="width70"/>
 				</div>
-				<br><br> <b>RESULT</b>: This is the successful deployment of the application in Production environment (namespace: jx-Production):
+				<br><br> <b>RESULT</b>: Following is a successful deployment of the application in Production environment (namespace: jx-Production):
 				<br><i>Note: It is possible to setup custom DNS for achieving desired url names. I have not configured that in this production url yet.</i>
 				<br><div class="holder">
 					<img src="images/JenkinsX_CICD_Production.JPG" class="width70"/>
 				</div>					
-
-
-				<br><br>d. <i>DevOps Test Automation</i>: Standard benefit of Continous Integration that you can have inbuilt quality as tests can be automated to run after the build.
+				
+				<br><br> <i id="5_2_4"> 5.2.4 DevOps Test Automation</i>: Standard benefit of Continous Integration that you can have inbuilt quality as tests can be automated to run after the build.
 				<br><br> Note: At the moment, it only show two tests, however, BDD/cucumber tests can also be wired here. BDD/Cucumber tests are explained in Test Automation link below.
 				<br><div class="holder">
 					<img src="images/TestAutomationEvindenceWithJenkinsX.jpg" class="width70"/>
 				</div>	
-				<br><br>e. <i>More Coming</i>
+				<br><br> <i id="5_2_5">5.2.5 More Coming</i>
 
-				<br> <a href="#toc">Back to Table Of Contents</a>
+				<br> <a href="cicd.html#toc">Back to Table Of Contents</a>
 				<br>
 		</td>
 	</tr>			
