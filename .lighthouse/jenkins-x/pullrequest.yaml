@@ -37,7 +37,11 @@ spec:
           Name: add-new-var
           Resources: {}
           command: ["/bin/sh","-c"]
-          args: ["/bin/echo \"test\""]
+          args:
+          -  #!/usr/bin/env sh
+            echo Newly added step;
+            echo export MYVAR='foo' >> .jx/variables.sh;
+            cat .jx/variables.sh;
 #        - run:
 #          Name: access-new-var
 #          command: bash accessVariable.sh 
