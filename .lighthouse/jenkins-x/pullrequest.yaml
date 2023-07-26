@@ -36,11 +36,11 @@ spec:
         - image: ghcr.io/jenkins-x/jx-boot:3.2.188
           Name: add-new-var
           Resources: {}
-          Script: bash createVariable.sh
-        - image: ghcr.io/jenkins-x/jx-boot:3.2.188
-          Name: access-new-var
-          Resources: {}
-          Script: bash AccessVariable.sh
+          command: ["/bin/sh","-c"]
+          args: ["echo Newly added step"]
+#        - run:
+#          Name: access-new-var
+#          command: bash accessVariable.sh 
         - name: build-set-version
           resources: {}
         - name: build-mvn-install
