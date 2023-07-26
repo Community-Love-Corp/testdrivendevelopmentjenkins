@@ -42,6 +42,16 @@ spec:
             echo Newly added step;
             echo export MYVAR='foo' >> .jx/variables.sh;
             cat .jx/variables.sh;
+        - image: ghcr.io/jenkins-x/jx-boot:3.2.188
+          Name: access-new-var
+          Resources: {}
+          command: ["/bin/sh","-c"]
+          args:
+            #!/usr/bin/env sh
+            echo newly added step;
+            source .jx/variables.sh;
+            cat .jx/variables.sh;
+            echo ${MYVAR}; 
 #        - run:
 #          Name: access-new-var
 #          command: bash accessVariable.sh 
