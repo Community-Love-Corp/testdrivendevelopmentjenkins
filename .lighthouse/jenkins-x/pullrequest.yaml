@@ -47,7 +47,7 @@ spec:
           Resources: {}
           command: ["/bin/sh","-c"]
           args:
-            #!/usr/bin/env sh
+          -  #!/usr/bin/env sh
             echo newly added step;
             source .jx/variables.sh;
             cat .jx/variables.sh;
