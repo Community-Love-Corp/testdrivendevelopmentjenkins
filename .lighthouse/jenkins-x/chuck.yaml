@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+Metadata:
+  Annotations:
+    lighthouse.jenkins-x.io/prependStepsURL: https://raw.githubusercontent.com/jenkins-x/jx3-pipeline-catalog/1ac6e91/tasks/git-clone/git-clone.yaml
+  Labels:
+    jenkins.io/pipelineType: build
+  name: jx-kh-chuck
+spec:
+  pipelineSpec:
+    Tasks:
+     - name: chuck-it
+       taskSpec: 
+        Steps:
+          - image: jenkinsxio/chuck:0.0.1
+            Name: chuck
+            resources:
+              requests:
+                cpu: 100m
+                memory: 200Mi
+            workingDir: /workspace/source
+  serviceAccountName: tekton-bot
+  Timeout: 0h20m0s
+status: {}
