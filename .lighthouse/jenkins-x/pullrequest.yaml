@@ -33,6 +33,24 @@ spec:
             requests:
               cpu: 400m
               memory: 512Mi
+        - image: ghcr.io/jenkins-x/jx-boot:3.2.188
+          Name: add-new-var
+          Resources: {}
+          Script: |
+          #!/usr/bin/env sh
+          echo Newly added step
+          echo export MYVAR='foo' >> .jx/variables.sh
+          cat .jx/variables.sh
+        - image: ghcr.io/jenkins-x/jx-boot:3.2.188
+          Name: access-new-var
+          Resources: {}
+          Script: |
+          #!/usr/bin/env sh
+          echo newly added step
+          source .jx/variables.sh
+          cat .jx/variables.sh
+          echo ${MYVAR}
+
         - name: build-set-version
           resources: {}
         - name: build-mvn-install
