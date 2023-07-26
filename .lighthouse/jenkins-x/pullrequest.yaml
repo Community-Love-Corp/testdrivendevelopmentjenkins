@@ -37,7 +37,7 @@ spec:
           Name: add-new-var
           Resources: {}
           command: ["/bin/sh","-c"]
-          args: ["echo Newly added step"]
+          args: ["/bin/echo \"test\""]
 #        - run:
 #          Name: access-new-var
 #          command: bash accessVariable.sh 
